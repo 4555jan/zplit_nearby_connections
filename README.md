@@ -61,6 +61,8 @@ On the receiver device, select Receiver mode and tap Start Advertising. On the s
 receiver appears in the list, tap Sync All. The receiver will display the incoming expense card and the sender will report the sync result.
 To test offline operation, disable WiFi and mobile data on both devices before scanning. BLE operates independently of all network connectivity and the sync will complete identically.
 
+tested on android version 14,15,16
+
 <img width="338" height="758" alt="image" src="https://github.com/user-attachments/assets/94e5b005-000c-45e5-8658-54c9a433d7ca" />
 
 <img width="366" height="819" alt="image" src="https://github.com/user-attachments/assets/d0fd2ed2-03b0-479d-a214-f69e326c6f09" />
