@@ -1,8 +1,8 @@
-# Zplit BLE Transport Layer — Offline Expense Sync over Bluetooth Low Energy
+# Zplit BLE Transport Layer Offline Expense Sync over Bluetooth Low Energy
 
 ## Overview
 Zplit is an offline-first expense splitting application. This repository implements and validates the Bluetooth Low Energy transport layer 
- the mechanism by which two Android devices exchange structured expense data with zero internet dependency.
+ the mechanism by which two(can also be more) Android devices exchange structured expense data with zero internet dependency.
 
 **What this demo proves:**
  Phone-to-phone BLE expense sync works on real Android hardware
