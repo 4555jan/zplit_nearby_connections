@@ -38,6 +38,22 @@ he receiver will verify this signature against the sender's public key before ac
 The MTU is negotiated to 512 bytes. A typical expense payload of this structure serializes to approximately 280-320 bytes, comfortably within a single MTU packet. Larger payloads such as group 
 sync operations with multiple expenses will require chunking, which is planned for the production implementation.
 
+**Install dependencies:**
+```bash
+flutter pub get
+```
+
+**Run on a connected device:**
+```bash
+flutter run
+```
+
+**Build a release APK:**
+```bash
+flutter build apk --release
+```
+
+The APK will be at `build/app/outputs/flutter-apk/app-release.apk`. Install on both devices manually.
 
 **Testing the sync:**
 
