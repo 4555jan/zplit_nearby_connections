@@ -10,15 +10,6 @@ Zplit is an offline-first expense splitting application. This repository impleme
  One sender can sequentially sync to multiple receivers in a single operation
  The payload format is identical to what the production Zplit app will use
  
-## BLE Fundamentals
-Bluetooth Low Energy operates on a client-server model with two distinct roles: Peripheral and Central.
-The Peripheral is the server. It hosts a GATT server, 
-advertises its presence over the air,services and characteristics(its nothing but what we used the bluetooth for for instance for zplit it will be trasfering the data) 
- and waits for incoming connections
-In Zplit, the receiver phone plays this role. It uses the `ble_peripheral` package to set up the GATT server and begin advertising.
-The Central is the client. It scans for nearby peripherals, filters by service UUID to find only Zplit devices, initiates a connection, discovers the 
-available services and characteristics, and writes data to the appropriate characteristic. In Zplit, the sender phone plays this role. It uses the `flutter_blue_plus` package.
-BLE operates on the 2.4 GHz ISM radio band independently of any network infrastructure. There is no router, no access point, and no internet required at any point in the connection.
 ## Connection Lifecycle
 Every sync operation between a sender and a single receiver follows this sequence.
 First, the receiver initializes its GATT server, registers the Zplit service and characteristic, sets up the write request callback, 
