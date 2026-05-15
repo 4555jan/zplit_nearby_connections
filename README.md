@@ -1,8 +1,8 @@
-# Zplit BLE Transport Layer — Offline Expense Sync over Bluetooth Low Energy
+# Zplit BLE Transport Layer Offline Expense Sync over Bluetooth Low Energy
 
 ## Overview
 Zplit is an offline-first expense splitting application. This repository implements and validates the Bluetooth Low Energy transport layer 
- the mechanism by which two Android devices exchange structured expense data with zero internet dependency.
+ the mechanism by which two(can also be more) Android devices exchange structured expense data with zero internet dependency.
 
 **What this demo proves:**
  Phone-to-phone BLE expense sync works on real Android hardware
@@ -10,15 +10,6 @@ Zplit is an offline-first expense splitting application. This repository impleme
  One sender can sequentially sync to multiple receivers in a single operation
  The payload format is identical to what the production Zplit app will use
  
-## BLE Fundamentals
-Bluetooth Low Energy operates on a client-server model with two distinct roles: Peripheral and Central.
-The Peripheral is the server. It hosts a GATT server, 
-advertises its presence over the air,services and characteristics(its nothing but what we used the bluetooth for for instance for zplit it will be trasfering the data) 
- and waits for incoming connections
-In Zplit, the receiver phone plays this role. It uses the `ble_peripheral` package to set up the GATT server and begin advertising.
-The Central is the client. It scans for nearby peripherals, filters by service UUID to find only Zplit devices, initiates a connection, discovers the 
-available services and characteristics, and writes data to the appropriate characteristic. In Zplit, the sender phone plays this role. It uses the `flutter_blue_plus` package.
-BLE operates on the 2.4 GHz ISM radio band independently of any network infrastructure. There is no router, no access point, and no internet required at any point in the connection.
 ## Connection Lifecycle
 Every sync operation between a sender and a single receiver follows this sequence.
 First, the receiver initializes its GATT server, registers the Zplit service and characteristic, sets up the write request callback, 
@@ -60,6 +51,8 @@ The APK will be at `build/app/outputs/flutter-apk/app-release.apk`. Install on b
 On the receiver device, select Receiver mode and tap Start Advertising. On the sender device, select Sender mode and tap Scan. Once the scan completes and the 
 receiver appears in the list, tap Sync All. The receiver will display the incoming expense card and the sender will report the sync result.
 To test offline operation, disable WiFi and mobile data on both devices before scanning. BLE operates independently of all network connectivity and the sync will complete identically.
+
+tested on android version 14,15,16
 
 <img width="338" height="758" alt="image" src="https://github.com/user-attachments/assets/94e5b005-000c-45e5-8658-54c9a433d7ca" />
 
